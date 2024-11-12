@@ -49,6 +49,8 @@ def main() -> bool:
 
 if __name__ == '__main__':
     main()
+
+    
 # Your Trie object will be instantiated and called as such:
 # obj = Trie()
 # obj.insert(word)
