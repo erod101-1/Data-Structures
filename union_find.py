@@ -18,14 +18,15 @@ class UnionFind:
     def find(self,n):
         p = self.parent[n]
         while p != self.parent[p]:
-            self.parent[p] = self.parent[self.parent[p]]
-            p = self.parent[p]
+            self.parent[p] = self.parent[self.parent[p]] # iterate to parent
+            p = self.parent[p] # optimize
         return p 
     def union(self,n1,n2):
         p1,p2 = self.find(n1),self.find(n2) 
-        if p1 == p2: 
-            return False # Cant Union yourself
-        if self.rank[p1] > self.rank[p2]:
+        if p1 == p2: # same root parent return false
+            return False 
+        # union by rank
+        if self.rank[p1] > self.rank[p2]: 
             self.parent[p2] = p1 
         elif self.rank[p1] < self.rank[p2]:
             self.parent[p1] = p2
